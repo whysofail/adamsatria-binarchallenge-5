@@ -1,0 +1,9 @@
+<%- include('layout/header')  %> 
+<%- include('layout/sidebar')  %> 
+
+<div class="container-fluid  d-inline-block" style="padding-left: 15em; padding-top: 5rem; min-height: 100vh; background: #F4F5F7;">
+    <% cars.forEach(item => { %>
+     <h1><%= item.name %> </h1>
+    <% }) %>
+</div>
+<%- include('layout/footer')  %> 
