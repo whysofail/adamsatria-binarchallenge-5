@@ -44,7 +44,15 @@ export const createCars = async (req, res) => {
 
 export const updateCars = async(req, res) => {
     try {
-        await Cars.update(req.body, {
+        await Cars.update({
+            name : req.body.name,
+            capacity : req.body.capacity,
+            description : req.body.description,
+            rent : req.body.rent,
+            img : req.file === undefined ? "" : req.file.filename,
+            updated : new Date()
+        }, 
+        {
             where: {
                 id: req.params.id
             }
