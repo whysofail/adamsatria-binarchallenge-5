@@ -1,15 +1,183 @@
-.sidebar {
-    background-color: #0D28A6;
-    position: absolute;
-    z-index: 1;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+.navbar{
+    background-color: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+    --bs-nav-link-color: white;
 }
 
-.nav-item{
-    max-width: 5.5em;
+.car-card{
+    font-family: 'IBM Plex Sans', sans-serif;
+    width: 25rem;
+    min-height: 32rem;
+}
+
+.car-card-body{
+    padding-top: 1.5em;
+    padding: 0;
+}
+.car-img{
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+    margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .car-img{
+        width: 100%;
+        height: 100vw;
+        object-fit: cover;
+        margin: auto;
+    }
+}
+
+.car-card-title{
+  font-family: 'IBM Plex Sans';
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.car-card-rent{
+    font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+}
+.card-text{
+    font-size: 14px;
+    margin-top: 1em;
+}
+
+.btn-delete, .btn-edit{
+    width: 9rem;
+    border-radius: 2px;
+}
+.btn-delete{
+    background-color: white;
+    color: red;
+}
+
+.btn-edit{
+    background: #5CB85F;
+    border: none;
+}
+
+#wrapper {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -10rem;
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 5.5rem;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: -10rem;
+  }
+}
+
+.side-item{
+    max-width: 5.5rem;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    padding-top: 0.5rem;
+    color: #FFFFFF;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.3);
+}
+.nav-pills .nav-link, .nav-pills .show>.nav-link {
+  padding-top: 0.5rem;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.3);
+}
+.nav-pills .nav-link {
+    background: 0 0;
+    border: 0;
+    border-radius: 0;
 }
 
 .nav-text{
-    margin: 0;
-    padding: 0;
     font-size: 12px;
+
+}
+
+.list-group-item-light {
+    border: none;
+    color: black;
+    background-color: #fefefe;
+}
+
+.list-group-item-light.list-group-item-action.active {
+    color: black;
+    background-color: #CFD4ED;
+    border-color: #CFD4ED;
+}
+
+.btn-confirm, .btn-tutup{
+  width: 5.5rem;
+  height: 2.6rem;
+  border-radius: 2px;
+  
+}
+
+.btn-confirm{
+  background: #0D28A6;
+border-radius: 2px;
+}
+
+.btn-search{
+  border: 1px solid #0D28A6;
+  border-radius: 2px;
+}
+
+.breadcrumb{  
+  background-color: #F4F5F7;
+  box-shadow: none;
+}
+
+.breadcrumb-item > a{
+  color: black;
+  text-decoration: none;
+}
+
+.list-title{
+  font-family: 'IBM Plex Sans';
+  color: #8A8A8A;
+  font-size: 14px;
+}
+
+.btn-capacity{
+border: 1px solid #0D28A6;
+border-radius: 2px;
 }

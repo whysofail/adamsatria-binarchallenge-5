@@ -23,12 +23,12 @@ const Cars = db.define('cars',{
     rent:{
         type: DataTypes.INTEGER
     },
-    created:{
+    createdAt:{
         type: DataTypes.DATE,
         allowNull: true
 
     },
-    updated:{
+    updatedAt:{
         type: DataTypes.DATE,
         allowNull : true
     }

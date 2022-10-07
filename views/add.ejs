@@ -1,7 +1,76 @@
-  <nav aria-label="breadcrumb">
+
+<%- include('layout/header')  %> 
+<%- include('layout/nav')  %> 
+
+
+
+<div class="container-fluid" style="padding-top: 5rem   ; min-height: 100vh;">
+  <nav class="bread-crumb" style="--bs-breadcrumb-divider: '>';"  aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Library</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Data</li>
+      <li class="breadcrumb-item"><a href="/cars">Cars</a></li>
+      <li class="breadcrumb-item"><a href="/cars">List Cars</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Add New Car</li>
     </ol>
-  </nav>
+  </nav> 
+    <div class="d-flex align-items-center justify-content-between">
+        <h1>Add New Car</h1>
+    </div>
+    <div class="form-wrapper">
+      <form class="form p-3 ps-5" method="POST" action="/add" enctype="multipart/form-data">
+        <div class="row my-3">
+          <div class="col-2 mt-2 form-label">
+            <label for="name" class="form-label">Nama</label>
+          </div>
+          <div class="col form-body">
+            <div class="mb-3">
+              <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+            </div>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="col-2 mt-2 form-label">
+            <label for="exampleInputEmail1" class="form-label">Sewa Per Hari</label>
+          </div>
+          <div class="col form-body">
+            <div class="mb-3">
+              <input type="number" class="form-control" id="rent" name="rent" aria-describedby="emailHelp">
+              
+            </div>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="col-2 mt-2 form-label">
+            <label for="exampleInputEmail1" class="form-label">Ukuran</label>
+          </div>
+          <div class="col form-body">
+            <div class="mb-3">
+              <select class="form-select " name="capacity" id="capacity">
+                <option selected>Select one</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+              </select>
+          </div>
+        </div>
+        </div>
+        <div class="row my-3">
+          <div class="col-2 mt-2 form-label">
+            <label for="exampleInputEmail1" class="form-label">Foto</label>
+          </div>
+          <div class="col form-body">
+            <div class="mb-3">
+              <input type="file" class="form-control" name="img" id="" placeholder="" aria-describedby="fileHelp">
+              <small id="fileHelp" class="form-text text-muted">File size max. 2MB</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-inline" style="position: absolute; bottom:   0;">
+        <a  href="/cars" class="btn btn-primary pt-2">Cancel</a>
+        <button type="submit" class="btn btn-primary pt-2">Save</button>
+    </div>
+      </form>
+
+</div>
+
+<%- include('layout/footer')  %> 

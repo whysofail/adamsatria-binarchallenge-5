@@ -1,5 +1,6 @@
 import express from "express";
-import { getCars, getCarsById, createCars, updateCars, deleteCars } from "../controllers/Cars.js";
+import { getCars,getCarsWhere, getCarsById, createCars, updateCars, deleteCars } from "../controllers/Cars.js";
+import Cars from "../models/CarsModel.js";
 import { upload } from "../upload.js";
 const router = express.Router();
 const app = express();
@@ -7,13 +8,20 @@ const app = express();
 
 
 app.use(express.json())
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:true}));
 
-router.get('/', getCars);
-router.get('/:id',getCarsById)
-router.post('/',upload.single('img',express.request),createCars);
-router.put('/:id', updateCars);
-router.delete('/:id', deleteCars);
+router.get('/cars', getCars);
+router.get('/cars/:size',getCarsWhere);
+router.get('/cars/:id/edit',getCarsById);
+router.get('/add', (req, res) => {
+    res.render('add.ejs',({title : "Add New Cars"}))
+  })
+router.post('/add',upload.single('img'),createCars);
+router.put('/cars/:id/edit',upload.single('img'), updateCars);
+router.delete('/cars/:id', deleteCars);
+router.get('/test', (req, res) => {
+  res.render('test.ejs',({title : "testing"}))
+})
 
 
 

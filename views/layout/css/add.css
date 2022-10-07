@@ -1,0 +1,9 @@
+.form-wrapper{
+    background-color: white;
+    border: grey;
+    border-radius: 2px;
+}
+
+.form{
+    max-width: 50%;
+}
