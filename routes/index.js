@@ -19,9 +19,7 @@ router.get('/add', (req, res) => {
 router.post('/add',upload.single('img'),createCars);
 router.put('/cars/:id/edit',upload.single('img'), updateCars);
 router.delete('/cars/:id', deleteCars);
-router.get('/test', (req, res) => {
-  res.render('test.ejs',({title : "testing"}))
-})
+
 
 
 
