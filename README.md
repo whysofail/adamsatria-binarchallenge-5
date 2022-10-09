@@ -3,8 +3,8 @@
 Dibuat untuk menyelesaikan FSW Challenge ke 5 dari Binar Academy
 
 # ERD
-
-![ERD DB](bcr_db.svg)
+![ERD DB](ERD.svg)  
+![Table DB](bcr_db.svg)
 
 # Page link
 
