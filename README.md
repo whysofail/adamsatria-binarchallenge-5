@@ -6,7 +6,7 @@ Dibuat untuk menyelesaikan FSW Challenge ke 5 dari Binar Academy
 
 ![ERD DB](bcr_db.svg)
 
-# Endpoint
+# Page link
 
 ### List Car
 [localhost/cars](https://localhost/cars)  
@@ -17,6 +17,18 @@ Use either /small, /medium or /large
 [localhost/add](https://localhost/add)   
 ### Update Car
 [localhost/cars/:id/edit](https://localhost/cars/1/edit)   
-### Delete Car
-With delete method  
-[localhost/cars/:id](https://localhost/cars/1)   
+
+
+# Contoh Request Body
+
+```json
+{
+    "name": "Honda Fit",
+    "capacity": "small",
+    "description": "Mobil Honda Fit",
+    "img": "imgfilename.jpg",
+    "rent": 300000
+}
+# CreatedAt or UpdatedAt will be automatically inserted
+
+```
