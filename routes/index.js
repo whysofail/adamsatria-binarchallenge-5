@@ -10,13 +10,13 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
 
-router.get('/cars', getCars);
-router.get('/cars/:size',getCarsWhere);
-router.get('/cars/:id/edit',getCarsById);
-router.get('/add', (req, res) => {
+router.get('/cars/', getCars);
+router.get('/cars/add', (req, res, next) => {
     res.render('add.ejs',({title : "Add New Cars"}))
   })
-router.post('/add',upload.single('img'),createCars);
+router.get('/cars/:size',getCarsWhere);
+router.get('/cars/:id/edit',getCarsById);
+router.post('/cars/add',upload.single('img'),createCars);
 router.put('/cars/:id/edit',upload.single('img'), updateCars);
 router.delete('/cars/:id', deleteCars);
 

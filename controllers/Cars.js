@@ -62,16 +62,17 @@ export const createCars = async (req, res) => {
 export const updateCars = async(req, res) => {
     try {
         // //Delete old photo
-        // const cars = await Cars.findByPk(req.params.id)
-        // const oldPhoto = path.join(__dirname,'..','/uploads/',cars[0].img)
-        // console.log(oldPhoto)
-        // fs.unlinkSync(oldPhoto);
+        const cars = await Cars.findByPk(req.params.id,{raw: true})
+        const imglength = Object.keys(cars.img).length
+        if(cars.img > 1){ //if image exists, delete
+            fs.unlinkSync(path.join(__dirname,'..','/uploads/',cars.img));
+        }        
         await Cars.update({
             name : req.body.name,
             capacity : req.body.capacity,
             description : req.body.description,
             rent : req.body.rent,
-            img : req.file === undefined ? "" : req.file.filename,
+            img : req.file === undefined ? cars.img : req.file.filename,
             created : Cars.created, // Prevent 'created' fields being automatically changed.
             updated : new Date()
         }, 
@@ -80,6 +81,7 @@ export const updateCars = async(req, res) => {
                 id: req.params.id
             }
         });
+        req.flash('info', 'Data berhasil diupdate')
         res.redirect('/cars')
     } catch (err) {
         console.log(err);
@@ -89,15 +91,15 @@ export const updateCars = async(req, res) => {
 
 export const deleteCars = async (req, res) => {
     try {
-        // //Delete old photo
-        // const cars = await Cars.findByPk(req.params['id'])
-        // if(cars.img){
-        //     return oldPhoto = path.join(__dirname,'..','/uploads/',cars.img)
-        // }
-        
-        // console.log(oldPhoto)
-        // fs.unlinkSync(oldPhoto);
+        //Delete old photo
+        const cars = await Cars.findByPk(req.params.id,{raw: true})
+        const imglength = Object.keys(cars.img).length
+        console.log(imglength)
+        if(imglength > 1){ //if image exists, delete
+            fs.unlinkSync(path.join(__dirname,'..','/uploads/',cars.img));
+        }        
         await Cars.destroy({
+            
             where: {
                 id: req.params.id
             }
